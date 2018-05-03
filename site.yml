@@ -1,0 +1,10 @@
+---
+- hosts: server
+  become: yes
+  roles:
+    - td-agent
+    - limits
+    - kernel
+    - jdk
+    - elasticsearch
+    - kibana
