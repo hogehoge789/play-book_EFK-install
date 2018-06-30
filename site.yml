@@ -1,20 +1,21 @@
 ---
-#- name: Get Inventory
-#  hosts: localhost
-#  connection: local
-#  gather_vacts: False
-#
-#  tasks:
-#    - name: Refresh inventory
-#      meta: refresh_inventory
+- name: Get Inventory
+  hosts: localhost
+  connection: local
+  gather_facts: False
 
--name : EFK Instale
-  hosts: server
-  become: yes
+  tasks:
+    - name: Refresh inventory
+      meta: refresh_inventory
+
+- name: EFK Instale
+  hosts: tag_Role_cent_efk
+  become: true
   roles:
-    - td-agent
-    - limits
-    - kernel
-#    - jdk
-#    - elasticsearch
+    - jdk
+    - elasticsearch
+
+#    - td-agent
+#    - limits
+#    - kernel
 #    - kibana

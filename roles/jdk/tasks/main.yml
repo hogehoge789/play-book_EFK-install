@@ -1,0 +1,5 @@
+---
+- name: install wget
+  yum: name=wget state=installed
+
+- include_tasks: jdk.yml tags=jdk
