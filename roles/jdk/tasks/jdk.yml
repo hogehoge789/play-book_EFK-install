@@ -1,17 +1,5 @@
 ---
-- name: check java rpm
-  stat: path= "{{ jdk.rpm_path }}"
-  register: java_exists
-
-- name: wget java
-  get_url:
-    url: "{{ jdk.dl_url }}"
-    dest: "{{ jdk.rpm_path  }"}
-    mode: 0644
-    validate_certs: no
-    headers: "Cookie: oraclelicense=accept-securebackup-cookie"
-
-- name: install java from local rpm
+- name: install java
   yum: 
-    name: "{{ jdk.rpm_path }}"
+    name: java-1.8.0-openjdk
     state: present
